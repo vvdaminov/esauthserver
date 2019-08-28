@@ -23,13 +23,10 @@
     $ sudo nginx -t #тест
 
 Файл etc/hosts добавляем
-"
     127.0.0.1	esauthserver.ru
     127.0.0.1	domsoviet.ru
-"
 
 Файл /etc/nginx/sites-available/esauthserver.ru
-    "
     server {
         listen 80;
         server_name esauthserver.ru www.esauthserver.ru;
@@ -45,7 +42,6 @@
                 proxy_pass http://unix:/run/gunicorn.sock;
         }
     }    
-    "
 Аналогично файл /etc/nginx/sites-available/domsoviet.ru
 
 Активация настроек сайтов    
@@ -89,7 +85,7 @@ https://www.8host.com/blog/razrabotka-django-prilozheniya-na-postgresql-nginx-gu
     (myenv) vlad@devstation:~/dev/venv$ pip install django                       # инстраляция django
 
 Создание проектов
-    # ":~$" - путь ("vlad@devstation:~/dev/venv$")
+    # :~$ - путь ("vlad@devstation:~/dev/venv$")
     
     (myenv):~$ django-admin startproject esauthserver                              # название проекта сервера авторизациии и хранения данных 
     (myenv):~$ django-admin startproject domsoviet                                 # проект сайта-клиента

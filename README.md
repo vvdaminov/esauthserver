@@ -89,7 +89,7 @@ https://www.8host.com/blog/razrabotka-django-prilozheniya-na-postgresql-nginx-gu
 
 Создание проектов 
 
-    {Ё$} это путь {"~/dev/venv$"})
+    {~$} это путь {"~/dev/venv$"})
     
     (myenv):~$ django-admin startproject esauthserver                              # название проекта сервера авторизациии и хранения данных 
     (myenv):~$ django-admin startproject domsoviet                                 # проект сайта-клиента

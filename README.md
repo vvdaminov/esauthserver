@@ -87,7 +87,7 @@ https://www.8host.com/blog/razrabotka-django-prilozheniya-na-postgresql-nginx-gu
     $ source ./myenv/bin/activate                                                # активация виртуального окружения (deactivate - деактивация)
     (myenv) vlad@devstation:~/dev/venv$ pip install django                       # инстраляция django
 
-Создание проектов ({:~$} это путь {"vlad@devstation:~/dev/venv$"})
+Создание проектов ({~$} это путь {"~/dev/venv$"})
     
     (myenv):~$ django-admin startproject esauthserver                              # название проекта сервера авторизациии и хранения данных 
     (myenv):~$ django-admin startproject domsoviet                                 # проект сайта-клиента
@@ -98,7 +98,7 @@ https://www.8host.com/blog/razrabotka-django-prilozheniya-na-postgresql-nginx-gu
     (myenv):~$ pip install gunicorn                                                # gunicorn
 
 
-(!)запуск в папках проекта
+(!)запуск в папках проектов
 
     (myenv):~/esauthserver$ gunicorn --bind 0.0.0.0:8001 esauthserver.wsgi         # запуск
     (myenv):~/domsoviet$ gunicorn --bind 0.0.0.0:8002 domsoviet.wsgi               # запуск

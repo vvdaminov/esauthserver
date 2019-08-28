@@ -23,10 +23,12 @@
     $ sudo nginx -t #тест
 
 Файл etc/hosts добавляем
+
     127.0.0.1	esauthserver.ru
     127.0.0.1	domsoviet.ru
 
 Файл /etc/nginx/sites-available/esauthserver.ru
+
     server {
         listen 80;
         server_name esauthserver.ru www.esauthserver.ru;
@@ -44,7 +46,8 @@
     }    
 Аналогично файл /etc/nginx/sites-available/domsoviet.ru
 
-Активация настроек сайтов    
+Активация настроек сайтов
+
     $ sudo ln -s /etc/nginx/sites-available/esauthserver.ru /etc/nginx/sites-enabled
     $ sudo ln -s /etc/nginx/sites-available/domsoviet.ru /etc/nginx/sites-enabled
     $ sudo nginx -t #тест
@@ -84,8 +87,7 @@ https://www.8host.com/blog/razrabotka-django-prilozheniya-na-postgresql-nginx-gu
     $ source ./myenv/bin/activate                                                # активация виртуального окружения (deactivate - деактивация)
     (myenv) vlad@devstation:~/dev/venv$ pip install django                       # инстраляция django
 
-Создание проектов
-    # :~$ - путь ("vlad@devstation:~/dev/venv$")
+Создание проектов ({:~$} это путь {"vlad@devstation:~/dev/venv$"})
     
     (myenv):~$ django-admin startproject esauthserver                              # название проекта сервера авторизациии и хранения данных 
     (myenv):~$ django-admin startproject domsoviet                                 # проект сайта-клиента
@@ -96,12 +98,14 @@ https://www.8host.com/blog/razrabotka-django-prilozheniya-na-postgresql-nginx-gu
     (myenv):~$ pip install gunicorn                                                # gunicorn
 
 
-(!)запуск в папках проекта 
+(!)запуск в папках проекта
+
     (myenv):~/esauthserver$ gunicorn --bind 0.0.0.0:8001 esauthserver.wsgi         # запуск
     (myenv):~/domsoviet$ gunicorn --bind 0.0.0.0:8002 domsoviet.wsgi               # запуск
     (myenv):~$ deactivate                                                          # остановка при необходимости
     
-    Посмотреть процессы gunicorn и убить их
+Посмотреть процессы gunicorn и убить их
+    
     (myenv):~$ ps ax|grep gunicorn
     (myenv):~$ kill 18765 или                                                 # не срабатывает или что-то делаю не так
     (myenv):~$ killall gunicorn                                               # поэтому убиваю все процессы 
@@ -115,6 +119,7 @@ https://www.8host.com/blog/razrabotka-django-prilozheniya-na-postgresql-nginx-gu
 ## esauthserver
 
 Редактирование settings.py (по аналогии для domsoviet.ru, уже есть на github)
+
     "-":
     DATABASES = {
         'default': {
@@ -150,17 +155,21 @@ https://www.8host.com/blog/razrabotka-django-prilozheniya-na-postgresql-nginx-gu
     """
 
 Теперь нужно переместить исходную схему базы данных в базу данных PostgreSQL:
+
     (myenv):~/esauthserver$ ./manage.py makemigrations
     (myenv):~/esauthserver$ ./manage.py migrate
 
 Создание администратора проекта (почту указывать не обязательно):
+
     (myenv):~/esauthserver$ ./manage.py createsuperuser
 
 Переместите весь статический контент в подготовленный каталог:
+
     (myenv):~/esauthserver$ ./manage.py collectstatic    
 
 
 ### django-oauth-toolkit
+
 Далее сервера осуществлялась по руководству:
 https://django-oauth-toolkit.readthedocs.io/en/latest/tutorial/tutorial_01.html
 

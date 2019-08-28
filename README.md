@@ -29,7 +29,7 @@
 "
 
 Файл /etc/nginx/sites-available/esauthserver.ru
-"
+    "
     server {
         listen 80;
         server_name esauthserver.ru www.esauthserver.ru;
@@ -45,7 +45,7 @@
                 proxy_pass http://unix:/run/gunicorn.sock;
         }
     }    
-"
+    "
 Аналогично файл /etc/nginx/sites-available/domsoviet.ru
 
 Активация настроек сайтов    
